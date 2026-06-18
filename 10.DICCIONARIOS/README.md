@@ -1,136 +1,136 @@
-## 📓 DICCIONARIOS
-🏷️ *Los dicionarios son la forma mas comun de almacenar datos estructurados de objetos que nos rodea en el mundo ,al igual que las listas que guardan informacion en `ELEMENTOS`,de igual manera los diccionarios almacenan sus datos en `ELEMENTOS`separados por comas.
-La diferencia es que las listas almacenan los elementos por `INDICE`y `VALOR`.
-Y los diccionarios almacenan los elementos por `CLAVE:VALOR`.*
-
-**📎 EJEMPLO**
-
+#Diccionarios
+los diccionarios son la forma mas comun de almacenar datos estructurados de objetos que nos rodea en el mundo, al igual que las listas que guardan informacion en 'elementos', de igual manera los diccionarios almacenan sus datos en 'elementos' separados por comas, la diferencia es que las listas almacenan los elementos por 'indice' y 'valor', y los diccionarios almacenan los elementos por 'clave:valor'.
+**ejemplo**
 ```python
-vocales:list[str]=['a','e','i','o','u']→valor
-# indices           0   1   2   3   4
-# un elemento en una lista esta conformado por dos cocitas el indice y su valor.
-# para acceder a un valor en una lista
-vocales[2] # → i
-# un elemento en un diccionario esta conformado por clave:valor
+vocales:list[str]=['a','e','i','o','u'] #valores
+#indices
+#un elemnto en una lista esta conformado por dos cositas: el indice y su valor.
 alumno:dict={'nombre':'eduardo','edad':40}
-# para acceder a un diccionario
-alumno["nombre"]# → eduardo
+#Para acceder un valor en una lista
+volaces[2] #1
+#Para acceder un valor en un diccionario
+alumno["nombre"] #eduardo
+
+##Acceder a elementos 
+- **Por clave(forma directa)**
+```python
+persona:dicc={
+    "nombre":"celia",
+    "edade":16,
+    "ciudad":"cabo verde",
+    "email":"celi@email.com",
+}
+print(persona)["edad"] #16
+print(persona)["email"] #celi@email.com
 ```
 
-## 📌ACCEDER A ELEMENTOS
-
-- **🔍POR CLAVE(forma directa)**
-
+## acceder a elementos
+    "email":"celi@email.com"
+}
+- **Por su metodo (forma mmas segura)**
 ```python
 persona:dict={
     "nombre":"celia",
-    "edad":16
+    "edade":16,
     "ciudad":"cabo verde",
-    "email":"celi@email.com"
+    "email":"celi@email.com",
 }
-print(persona["edad"]) # → 16
-print(persona["email"]) # → celi@email.com
+print(persona.get("nombre")) #celia
+# la diferencia de este metodo es que no permite manejar errores
+print(persona.get("telefono")) #none
+print(persona.get("telefono","no disponible")) # si la clave telefono no existe no ostrar none si no el segundo parametro que le pasemos al metodo get.
 ```
-
-- **🔍POR SU METODO(formamas segura)**
-
+## modificar elementos
+** cambiar un valor existente**
 ```python
 persona:dict={
     "nombre":"celia",
-    "edad":16
-    "ciudad":"cabo verde",
-    "email":"celi@email.com"
+    "edade":16,
 }
-print(persona.get("nombre")) # → celia
-
-# la diferencia de este metodo es que no permite manejar errores 
-print(persona.get("telefono")) # → NONE
-
-print(persona.get("telefono","no disponible")) # → si la clave telefono no existe no mostrara NONE si no el segundo parametro que le pasemos al metodo get.
-```
-
-## 🪄 MODIFICAR ELEMENTOS
-
-- **CAMBIAR UN VALOR EXISTENTE**
-
-``` python
-persona:dict={
-    "nombre":"celia",
-    "edad":16
-}
-persona["edad"]= 19
-# Agregar una nueva clave:valor
+persona["edad"]=19
+#agregar una nueva clave:valor
 persona["carrera"]="agro"
-# Si la clave no existe se crea automaticamente.si existe se actualiza.
+#si la clave no existe se crea automaticamente, si existe se actualiza.
 ```
-
-## 🔍🔁AGREGAR/ACTUALIZAR MULTIPLES ELEMENTOS
-
-Para eso tenemos que hacer uso del metodo `.UPDATE` se puede agregar si los pares de `clave:valor` no existe y actualizar si el `clave:valor` existe.
-
+## agregar/actualizar multiples elementos
+para esto tenemos que hacer uso de el metodo`.update` se puede agregar si los pares de  `clave:valor` no existe y actualizar si el `clave:valor` existe.
 ```python
 tienda:dict[str:str|int]={
     "razon_social":"bigote",
-    "RUC":20465783674
+    "ruc":20465783674
 }
-# Actualizar usando el metodo .UPDATE tengo dos maneras de usar este metodo
-
-# 1. 📖 DICCIONARIOS
-tienda.UPDATE({"RUC":23456789023,"telefono":987654321})
-# 2. 📎PARES CLAVE:VALOR
-tienda.UPDATE(h_atencion="9-12",gerente="luis")
+#actualizar usando el metodo .UPDATE tengo dos maneras de usar este metodo
+#1. diccionarios
+tienda.update({"ruc":123654893222,"telefono":94629232})
+#2. pares clave:valor
+tienda.update(h_atencion="9-12",gerente="kevin")
 ```
-
-## ❌🗑️ ELIMINAR ELEMENTOS
-
+##eliminar elementos
 ```python
 tienda:dict[str:str|int]={
     "razon_social":"bigote",
-    "RUC":20465783674
+    "ruc":2456255653265
 }
-el_eliminado=tienda.POP("RUC")
+el_eliminado=tienda.pop("ruc")
+tienda.popitem() #eliminar el ultimo elemento
+#para limpiar todo el diccionario
+tienda.clear()
 
-#Para limpiar todo el diccionario
-tienda.CLEAR()
-```
-
-## RECORRER UN DICCIONARIO
-
-# Boleta de compra
-
-productos = {
-    "Laptop": 3500,
-    "Mouse": 80,
-    "Teclado": 250,
-    "Audífonos": 180
+##recorre un diccionario (tarea)
+# Recorrer las claves
+persona = {
+    "nombre": "celi",
+    "edad": 25,
+    "ciudad": "puquio"
 }
 
-total = 0
-print(" BOLETA")
+En este diccionario:
 
-Recorremos clave + valor con .items()
-for producto, precio in productos.items():
-    print(f"{producto:10} S/ {precio}")
-    total += precio
+"nombre", "edad" y "ciudad" son las claves.
+"celi", 25 y "puquio" son los valores.
+# Recorrer los valores
+for valor in mi_diccionario.values():
+    print(valor)
 
-print("-" * 20)
-print(f"TOTAL:    S/ {total}")
 Salida:
---- BOLETA ---
-Laptop     S/ 3500
-Mouse      S/ 80
-Teclado    S/ 250
-Audífonos  S/ 180
+Celi
+25
+Puquio
+# Recorrer claves y valores
+for clave, valor in mi_diccionario.items():
+    print(clave, ":", valor)
+Salida:
+nombre : celi
+edad : 25
+ciudad : Puquio
+Dependiendo de lo que necesites, puedes recorrer:
 
-TOTAL:    S/ 4010
+# 1. Solo las claves
+Cuando iteras directamente sobre un diccionario, Python devuelve sus claves.
+for clave in persona:
+    print(clave)
 
-## ¿Qué hace el código?
+# 2. Solo los valores
+Si únicamente te interesan los datos almacenados:
+for valor in persona.values():
+    print(valor)
 
-1. for producto, precio in productos.items() → saca la clave y el valor en cada vuelta
-2. f"{producto:10}" → alinea el texto a 10 espacios para que se vea ordenado
-3. total += precio → va sumando todos los precios
+El método .values() devuelve una vista con todos los valores del diccionario.
 
-Variación rápida: Si solo quieres los productos caros > S/200:
-for producto, precio in productos.items():
-    if precio > 200:
-        print(f"{producto} es caro: S/ {precio}")
+# 3. Claves y valores simultáneamente
+Es la forma más utilizada porque permite acceder a toda la información de cada elemento.
+for clave, valor in persona.items():
+    print(clave, valor)
+El método .items() devuelve pares (clave, valor).
+
+
+# Métodos relacionados
+# Método	Descripción
+dict.keys()	Devuelve las claves
+dict.values()	Devuelve los valores
+dict.items()	Devuelve pares (clave, valor)
+
+## recuerda:
+* Usa for clave in diccionario: cuando solo necesites las claves.
+* Usa diccionario.values() cuando solo necesites los valores.
+*Usa diccionario.items() cuando necesites trabajar con claves y valores al mismo tiempo.
